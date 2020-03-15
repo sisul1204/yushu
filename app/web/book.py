@@ -10,6 +10,26 @@ from . import web
 from app.forms.book import SearchForm
 
 
+
+@web.route('/book/test')
+def test1():
+    from flask import request
+    from app.libs.nonelocal import n
+    print(n.v)
+    n.v = 2
+    print('---------------------')
+    print(getattr(request, 'v', None))
+    setattr(request, 'v', 2)
+    print(request.v)
+    print('---------------------')
+    return ''
+
+
+
+
+
+
+
 @web.route('/book/search')
 def search():
 
